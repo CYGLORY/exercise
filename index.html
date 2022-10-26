@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 小米商城 - Xiaomi 12、Redmi K50、MIX FOLD，小米电视官方网站</title>
+     <!--设置网站图标-->
+     <link rel="shortcut icon" href="https://www.mi.com/favicon.ico" type="image/x-icon">
+     <!--公共样式表-->
+    <!-- <link rel="stylesheet" href="/HTML/page/mi/base.css"> -->
+    <!--去除默认样式-->
+    <!-- <link rel="stylesheet" href="/HTML/css/recss.css"> -->
+    <!--主样式表-->
+    <!-- <link rel="stylesheet" href="/HTML/page/mi/index.css"> -->
+    <!-- 引入图标字体文件 -->
+    <link rel="stylesheet" href="/HTML/fontawesome-free-6.2.0-web/css/all.css">
+    <link rel="stylesheet" href="/HTML/page/mi/iconfont.css">
+    <style>
+    /* 公共样式 */
+    .clearfix::before,
+    .clearfix::after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+    body{
+        font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+        color: #333;
+        min-width: 1226px;
+    }
+    /* 去除默认样式 */
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+    body {
+        line-height: 1;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    blockquote, q {
+        quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    /* 开始 */
+     a{
+        text-decoration: none;
+        /* color: black; */
+    }
+    .top-nav{
+        width: 100%;
+        height: 40px;
+        background-color: #333333;
+    }
+    .nav{
+        width: 1226px;
+        min-width: 1226px;
+        height: 40px;
+        margin: 0 auto;
+        /* background-color: #ffffff; */
+        display: flex;
+    }
+    .nav-l{
+        width: auto;
+        height: 40px;
+        display: flex;
+        /* justify-content: flex-end; */
+        align-items: center;
+        /* background-color: #12c7df; */
+        /* float: left;  */
+        
+    }
+    .nav-l i{
+        width: 1px;
+        height: 10px;
+        background-color: #424242;
+        margin: 0px 4px;
+    }
+    .nav-l a{
+        height: 40px;
+        line-height: 40px;
+        color: #b0b0b0;
+        margin: 0px 4px;
+        font-size: 12px;
+        display: inline-block;
+    }
+    .nav-l a:hover{
+        color: #ffffff;
+    }
+    .appDownload-img{
+        position: absolute;
+        top: 40px;
+        left: 51%;
+        /* display: none; */
+        width: 124px;
+        height: 0;
+        overflow: hidden;
+    }
+    .appDownload-img img{
+        width: 90px;
+        height: 90px;
+        margin: 18px 17px 17px 17px;
+        /* transition: height 0.5s;不支持display */
+    }
+    .appDownload:hover .appDownload-img{
+        /* display: block; */
+        height: 140px;
+        transition: height .3s ;
+        color: #000000;
+        background-color: #ffffff;
+        box-shadow: 0 1px 5px #aaa;
+        text-align: center;
+        line-height: 1px;
+        /* overflow: hidden;
+        transition: height 0.5s; */
+        z-index: 999;  
+    }
+    .appDownload:hover::after{
+        content: "";
+        width: 0;
+        height: 0;
+        display: block;
+        border: 8px solid transparent;
+        border-top: none;
+        border-bottom-color: rgb(255, 255, 255);
+        position: absolute;
+        top: 32px;
+        left: 55%;
+        /* z-index: 999;  */
+    }
+    .nav-r{
+        width: auto;
+        height: 40px;
+        /* background-color: #ffb700; */
+        display: flex;
+        align-items: center;
+        position: relative;
+        left:150px;
+        /* margin-left: 233px; */
+    }
+    .nav-r i{
+        width: 1px;
+        height: 10px;
+        /* background-color: #dd2323; */
+        margin: 0px 4px;
+    }
+    .nav-r a{
+        height: 40px;
+        line-height: 40px;
+        color: #b0b0b0;
+        margin: 0px 4px;
+        font-size: 12px;
+        display: inline-block;
+    }
+    .nav-r a:hover{
+        color: #ffffff;
+    }
+    .shop{
+        width: 120px;
+        height: 40px;
+        background-color: #424242;
+        display: block;
+        position: relative;
+        left: 154px;
+        /* 居中对其 */
+        text-align: center;
+    }
+    .shop i{
+        color: #b0b0b0;
+        /* background-color: #dd2323; */
+
+    }
+    .shop a{
+        /* height: 40px; */
+        width: 100%;
+        line-height: 40px;
+        color: #b0b0b0;
+        margin: 0px 4px;
+        font-size: 12px;
+        display:block;
+    }
+    .shopping-num{
+        color: #b0b0b0;
+    }
+    .shop:hover a,.shop:hover span,.shop:hover i{
+        color: #FF6900;
+        background-color: #ffffff;
+    }
+    .shop-list{
+        width: 316px;
+        height: 0px;
+        /* background-color: #de1414; */
+        position: absolute;
+        top: 40px;
+        right: 0px;
+        overflow: hidden;
+    }
+    .shop-list-b-text{
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        margin: 30px auto;
+        /* color: #b0b0b0; */
+        font-size: 12px;
+    }
+    .shop:hover .shop-list{
+        position: absolute;
+        top: 40px;
+        right: -4px;
+        height: 100px;
+        transition: height .3s ;
+        color: #000000;
+        background-color: #ffffff;
+        box-shadow: 0 1px 5px #aaa;
+        line-height: 40PX;
+        z-index: 999;  
+    }
+    .header{
+        width: 100%;
+        height: 100px;
+        background-color: #ffffff;
+        /* position: relative; */
+    }
+    .header-search{
+        width: 1226px;
+        min-width: 1226px;
+        height: 100px;
+        margin: 0 auto;
+        /* background-color: #12c7df; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo{
+        width: 55px;
+        height: 55px;
+        /* background-color: #f80000; */
+        /* margin: 22.5px 0px 22.5px 0px; */
+    }
+    .product-list{
+        width: 550px;
+        height: 100px;
+        /* background-color: #12c7df; */
+        display: flex;
+        /* justify-content: space-between; */
+        align-items: center;
+        font-size: 12px;
+    }
+    .product-list li{
+        display: inline-block;
+        height: 100px;
+        line-height: 100px;
+        padding: 0px 10px;
+    }
+    .product-list a{
+        color: #333333;
+    }
+    .product-list li:hover a{
+        color: #FF6A00;
+    }
+    .down-list {
+        width: 100%;
+        height: 0px;
+        background-color: #ff0202;
+        position: absolute;
+        top: 140px;
+        left: 0px;
+        z-index: 99;
+        overflow: hidden;
+    }
+    .product-list .down:hover ~ .down-list,
+    .down-list:hover{
+        height: 200px;
+        transition: height 0.3s ;
+        color: #000000;
+        background-color: #ffffff;
+        box-shadow: 0 1px 5px #aaa;
+    }
+    /* .product-list li:hover .down-list{
+        height: 200px;
+        background-color: #ffffff;
+        position: absolute;
+        top: 100px;
+        left: 0px;
+        z-index: 999;
+        box-shadow: 0 1px 5px #aaa;
+        transition: height .3s ;
+    } */
+    .search{
+        float: right;
+        /* font-size: 0px !important; */
+        width: 296px;
+        height: 50px;
+        display: block;
+    }
+    .search-form{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        /* background-color: #12c7df; */
+        display: block;
+        justify-content: space-between;
+        align-items: center;
+    }
+    input{
+        position: absolute;
+        right: 51px;
+        top: 0px;
+        box-sizing: border-box;
+        float: left;
+        width: 223px;
+        height: 48px;
+        padding: 0px 10px;
+        border: 1px #e0e0e0 solid;
+        outline: none;
+        line-height: 48px;
+    }
+    .bt{
+        float: left;
+        right: 0px;
+        width: 50px;
+        height: 48px;
+        padding: 1px 6px;
+        border: 1px solid #E0E0E0;
+        position: absolute;
+        top: 0px;
+        left: 244px;
+        color: #616161;
+        background-color: #ffffff;
+        outline: none;  
+    }
+    .search input:hover,   
+    .search input:hover + .bt{
+        border: 1px solid #B0B0B0;
+    }
+    .search input:focus,   
+    .search input:focus + .bt{
+        border: 1px solid #FF6A00;
+    }
+    .bt i{
+        font-size: 20px;
+    }
+    .bt:hover{
+        /* height: 48px; */
+        background-color: #FF6A00;
+    }
+    .bt:hover i{
+        color: rgb(255, 255, 255);
+    }
+    .keyword-list{
+        display: none;
+        width: 211px;
+        line-height: 30px;
+        background-color: #FFFFFF;
+        position: absolute;
+        top: 47px;
+        left: 22px;
+    }
+    .search input:focus ~ .keyword-list{
+        display: block;
+        border: 1px solid #FF6A00;
+        padding-left: 10px;
+    }
+    .main{
+        width:1226px;
+        height: 460px;
+        /* background-color: rgb(220, 9, 9); */
+        margin: 0 auto;
+    }
+    .main-list{
+        width: 234px;
+        height: 420px;
+        padding: 20px 0;
+        background-color: rgba(105, 101, 101, 0.4);
+        float: left;
+        position: absolute;
+    }
+    .main-list li{
+        width: 204px;
+        /* height: 40px; */
+        line-height: 42px;
+        font-size: 14px;
+        color: #ffffff;
+        padding-left: 30px;
+        
+    }
+    .main-list li:hover{
+        background-color: #FF6900;
+    }
+    .main-list a{
+        color: rgb(255, 255, 255);
+    }
+    .main-list i::before{
+        content: "\f105";
+        font-family: FontAwesome;
+        font-size: 14px;
+        color: #ffffff;
+        /* float: right; */
+        position: absolute;
+        right: 20px;
+        
+    }
+    .main-list-r .r-list{
+        display: none;
+        width: 992px;
+        height: 460px;
+        background-color: #b6e9a5;
+        position: relative;
+        left: 234px;
+    }
+    .main-list-r:hover .r-list{
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: -500px;
+        z-index: 998;
+    }
+    .main-imgbox img{
+        width: 1226px;
+        height: 460px;
+    }
+    .main .button-left{
+        display: inline-block;
+        width: 31px;
+        height: 69px;
+        line-height: 69px;
+        color: #C1C6D3;
+        padding: 0 0 0 10px;
+        /* background-color: rgba(249, 2, 2, 0.6); */
+        position: relative;
+        top: -265px;
+        left: 234px;
+        font-size: 30px;
+        /* z-index: 9; */
+    }
+    .main  .botton-right{
+        display: inline-block;
+        width: 31px;
+        height: 69px;
+        line-height: 69px;
+        color: #C1C6D3;
+        padding: 0 0 0 10px;
+        /* background-color: rgba(249, 2, 2, 0.6); */
+        position: relative;
+        top: -265px;
+        left: 1139px;
+        font-size: 30px;
+        
+    }
+    .main .button-left:hover,
+    .main  .botton-right:hover
+    {
+        color: #ffffff;
+        background-color: #0c7f369c;
+    }
+    .pointer{
+        position: relative;
+        top: -100px;
+        right: 35px;
+        ;
+    }
+    .pointer a{
+        float: right;
+        width: 6px;
+        height: 6px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+    .pointer a:hover{
+        border: 2px solid rgba(0, 0, 0, 0.598);
+        background-color: rgba(248, 248, 248, 0.4);
+    }
+    .pointer a:focus{
+        border: 2px solid rgba(0, 0, 0, 0.598);
+        background-color: rgba(248, 248, 248, 0.4);
+    }
+    .top-button{
+        width: 27px;
+        height: 27px;
+        color: rgb(0, 0, 0);
+        background-color: #d2cdcd;
+        position: fixed;
+        right: 0;
+        left: auto;
+        margin-left: 613px;
+        bottom: 40px;
+    }
+    /* .top-botton-mini{
+        right: 0;
+        left: auto;
+        margin-left: 0;
+    } */
+    .fa-angle-up{
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .zhong{
+        width: 1226px;
+        height: 170px;
+        /* background-color: brown; */
+        /* overflow: hidden; */
+        margin: 10px auto;
+    }
+    .zhong .servive-list,
+    .zhong .zhong-img,.zhong li{
+       float: left;
+    }
+    .zhong .servive-list{
+        width: 228px;
+        height: 164px;
+        padding: 3px;
+        background-color: #5F5750;
+        margin-right: 14px;
+        position: relative;
+        top: -61px;
+    }
+    .servive-list li{
+        width: 70px;
+        height: 82px;
+        padding: 0 3px;
+        font-size: 14px;
+        line-height: 30px; 
+    }
+    .servive-list a{
+        display: block;
+        width: 70px;
+        height: 46px;
+        font-size: 14px;
+        color: #C3C0BD;
+        padding-top: 18px;
+        text-align: center;
+    }
+    .servive-list li a img{
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+    }
+    .servive-list li:hover a{
+        color: #ffffff;
+    }
+    .zhong-img{
+        position: relative;
+        top: -71px;
+    }
+    .zhong-img li{
+        /* position: relative; */
+        width: 316px;
+        height: 170px;
+        margin-right: 15px;
+    }
+    .zhong .zhong-img li:last-child{
+        margin-right: 0;
+    }
+    .zhong-img img{
+        width: 100%;
+        height: 170px;
+        vertical-align: top;
+    }    
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="nav">
+            <div class="nav-l">
+                    <a href="javascirpt:;">小米官网</a>
+                    <i></i>
+                    <a href="javascirpt:;">小米商城</a>
+                    <i></i>
+                    <a href="javascirpt:;">MIUI</a>
+                    <i></i>
+                    <a href="javascirpt:;">IoT</a>
+                    <i></i>
+                    <a href="javascirpt:;">云服务</a>
+                    <i></i>
+                    <a href="javascirpt:;">天星数科</a>
+                    <i></i>
+                    <a href="javascirpt:;">优品</a>
+                    <i></i>
+                    <a href="javascirpt:;">小爱开放平台</a>
+                    <i></i>
+                    <a href="javascirpt:;">企业团购</a>
+                    <i></i>
+                    <a href="javascirpt:;">资质证照</a>
+                    <i></i>
+                    <a href="javascirpt:;">协议规定</a>
+                    <i></i>
+                    <a href="javascirpt:;" class="appDownload">下载app
+                        <span class="appDownload-img">
+                            <img src="https://i1.mifile.cn/f/i/17/appdownload/download.png?1" alt="q">
+                            小米商城APP
+                        </span>
+                    </a>
+                    <i></i>
+                    <a href="javascirpt:;">Select Location</a>
+            </div>
+            <div class="nav-r">
+                    <a href="javascirpt:;">登录</a>
+                    <i></i>
+                    <a href="javascirpt:;">注册</a>
+                    <i></i>
+                    <a href="javascirpt:;">消息通知</a>
+            </div>
+            <ul class="shop"> 
+                <li><a href="javascirpt:;">
+                    <i class="fa fa-shopping-cart"></i>
+                        购物车
+                    <span class="shopping-num">(0)</span>
+                    </a>
+                    <div class="shop-list">
+                        <!-- <div class="shop-list-t">
+                            <span>最近加入的商品</span>
+                            <a href="javascirpt:;">编辑</a>
+                        </div>
+                        <div class="shop-list-b">
+                            <div class="shop-list-b-img">
+                                <img src="https://i1.mifile.cn/f/i/17/goods/sidebar/cart-empty.png?1" alt="">
+                            </div> -->
+                            <div class="shop-list-b-text">
+                                <p>购物车中还没有商品，赶紧选购吧！</p>
+                            </div>
+                        </div>
+                </li>   
+            </ul>
+        </div>  
+    </div>
+    <div class="header">
+        <div class="header-search">
+            <div class="logo">
+                <svg data-v-777bda80="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 808 808" class="mi-logo"><g data-v-777bda80=""><path data-v-777bda80="" fill="#ff6900" d="M723.79,84.42C647.55,8.48,537.94,0,404,0,269.89,0,160.12,8.58,83.92,84.72S0,270.43,0,404.39,7.74,648,84,724.14,269.9,808,404,808s243.85-7.71,320-83.86,84-185.78,84-319.75C808,270.25,800.16,160.54,723.79,84.42Z"></path> <path data-v-777bda80="" fill="#fff" d="M374.26,553.72a5,5,0,0,1-5.06,5H300.3a5.05,5.05,0,0,1-5.12-5V373.53a5.05,5.05,0,0,1,5.12-5h68.9a5,5,0,0,1,5.06,5Z"></path> <path data-v-777bda80="" fill="#fff" d="M509.18,553.72a5.05,5.05,0,0,1-5.09,5H438.5a5,5,0,0,1-5.1-5V398.26c-.07-27.15-1.62-55-15.64-69.06-12-12.09-34.51-14.86-57.88-15.44H241a5,5,0,0,0-5.07,5v235a5.07,5.07,0,0,1-5.12,5H165.16a5,5,0,0,1-5.06-5V254.31a5,5,0,0,1,5.06-5H354.52c49.49,0,101.22,2.26,126.74,27.81s27.92,77.3,27.92,126.85Z"></path> <path data-v-777bda80="" fill="#fff" d="M644.29,553.72a5.06,5.06,0,0,1-5.09,5H573.57a5,5,0,0,1-5.08-5V254.31a5,5,0,0,1,5.08-5H639.2a5.06,5.06,0,0,1,5.09,5Z"></path></g></svg>
+            </div>
+            <ul class="product-list">
+                <li class="down"><a href="javascript:;">Xiaomi手机</a></li>
+                <li class="down"><a href="javascript:;">Redmi手机</a></li>
+                <li class="down"><a href="javascript:;">电视</a></li>
+                <li class="down"><a href="javascript:;">笔记本</a></li>
+                <li class="down"><a href="javascript:;">家电</a></li>
+                <li class="down"><a href="javascript:;">平板</a></li>
+                <li class="down"><a href="javascript:;">路由器</a></li>
+                <li><a href="javascript:;">服务中心</a></li>
+                <li><a href="javascript:;">社区</a></li>
+                <!--创建下拉列表-->
+                <div class="down-list">
+                    
+                </div>
+            </ul>
+            <div class="search">
+                <form action="javascript:;" class="search-form clearfix">
+                    <input class="ipu" type="text" placeholder="小米10至尊纪念版">
+                    <button class="bt"><i class="fa fa-search "></i></button>
+                    <div class="keyword-list">
+                        <ul>
+                            <li>123</li>
+                            <li>456</li>
+                            <li>789</li>
+                        </ul>
+                    </div>
+                </form>
+               
+            </div>  
+        </div>
+    </div>
+    <div class="main">
+        <div class="main-list">
+            <ul>
+                <li  class="main-list-r">
+                    <a class="p" href="javascriot:;">手机
+                        <i ></i>
+                    </a>
+                    <div  class="r-list" >
+                        <ul>
+                            <!-- 此处li继承了mian-list-r的css样式需要重新定义css样式 -->
+                            <li>sdcsd</li>
+                            <li>sdcsd</li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="p" href="javascriot:;">电视</a><i></i></li>
+                <li><a class="p" href="javascriot:;">笔记本&nbsp;平板</a><i></i></li>
+                <li><a class="p" href="javascriot:;">出行&nbsp;穿戴</a><i></i></li>
+                <li><a class="p" href="javascriot:;">耳机&nbsp;音响</a><i></i></li>
+                <li><a class="p" href="javascriot:;">家电</a><i></i></li>
+                <li><a class="p" href="javascriot:;">智能&nbsp;路由器</a><i></i></li>
+                <li><a class="p" href="javascriot:;">电源&nbsp;配件</a><i></i></li>
+                <li><a class="p" href="javascriot:;">健康&nbsp;儿童</a><i></i></li>
+                <li><a class="p" href="javascriot:;">生活&nbsp;箱包</a><i></i></li>
+            </ul>
+        </div>
+        <div class="main-imgbox">
+            <img  src="/HTML/page/mi/img/手机.png">
+        </div>
+        <div class="button-left">
+            <i class="fa fa-angle-left"></i>
+        </div>
+        <div class="botton-right">
+            <i class="fa fa-angle-right"></i>
+        </div>
+        <div class="pointer">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+        <div class="top-button top-botton-mini">
+            <a href="#"><i class="fa fa-angle-up"></i></a>
+        </div>
+    </div>
+    <div class="zhong">
+        <ul class="servive-list clearfix">
+                <li><a href="javascript:;"><img src="/HTML/page/mi/img/售后保障.png">售后保障</a></li>
+                <li><a href="javascript:;"><img src="/HTML/page/mi/img/售后保障.png">企业团购</a></li>
+                <li><a href="javascript:;"><img src="/HTML/page/mi/img/售后保障.png">F码通道</a></li>
+                <li><a href="javascript:;"><img src="/HTML/page/mi/img/售后保障.png">米粉卡</a></li>
+                <li><a href="javascript:;"><img src="/HTML/page/mi/img/售后保障.png">以旧换新</a></li>
+                <li><a href="javascript:;"><img src="/HTML/page/mi/img/售后保障.png">话费充值</a></li>
+        </ul>   
+        <ul class="zhong-img ">
+                    <li class="br"><a href="javascript:;"><img src="/HTML/page/mi/img/a9e19e36641582ef95cf8263d7e7f07b.png"></a></li>
+                    <li class="br"><a href="javascript:;"><img src="/HTML/page/mi/img/a9e19e36641582ef95cf8263d7e7f07b.png"></a></li>
+                    <li class="br"><a href="javascript:;"><img src="/HTML/page/mi/img/a9e19e36641582ef95cf8263d7e7f07b.png"></a></li>
+        </ul>                      
+    </div>
+    
+</body>
+</html>
