@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟京东</title>
+    <link rel="stylesheet" href="../css/recss.css">
+    <link rel="stylesheet" href="/HTML/fontawesome-free-6.2.0-web/css/all.css">
+    <style>
+        body{
+            width: 1385px;
+            height: auto;
+            /* overflow:auto; */
+            background-color: #abf;
+        }
+       .top-header{
+           width: 1380.360px;
+           height: 30px;
+           background-color: #E3E4E5;
+           border-bottom: 1px solid #ccc;
+           font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,sans-serif;
+            line-height: 30px;
+        }
+        .top-header a{
+           color: rgb(173, 165, 165);
+           font-size: 12px;
+           text-decoration: none;
+       }
+        .top-header a:hover{
+              color: #e4111f;
+         }
+        .top-bottom{
+             width: 1190px;
+             height: 30px;
+             /* background-color: #fff; */
+             border-bottom: 1px solid #ccc;
+             /*外边距*/
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+         }
+         .location{ 
+            width: 42px;
+                height: 28px;
+                display: block;
+                line-height: 28px;
+                z-index: 10;
+                position: relative;
+                /* border: 1px solid #E3E4E5; */
+        }
+        .province{
+                width: 42px;
+                height: 28px;
+                display: flex;
+                line-height: 28px;
+                border: 1px solid #E3E4E5;  
+                padding: 0 10px;
+                position: relative;    
+                z-index: 9; 
+         }
+         .province:hover{
+            background-color: rgb(254, 254, 254);
+            
+         }
+        .province i{
+                height: 14px;
+                width: 14px;
+                margin-top: 7px;
+                margin-left: 2px;
+                color: rgb(255, 4, 4);
+                
+            }
+        .province li{
+                width: 40px;
+                height: 28px;
+                line-height: 28px;
+                text-align: center;
+                font-size: 12px;
+                color: #666;
+
+            }
+        .location .province-list{
+                display: none;
+                width: 320px;
+                height: 436px;
+                /* border: 1px solid #0874e1; */
+                background-color: rgb(255, 255, 255); 
+                position: absolute;     
+         }
+         .location:hover .province-list{
+                display: block;
+                border:rgb(197, 197, 197) 1px solid;
+                border-top: none;
+                box-shadow: 1px 2px 1px rgb(0, 0, 0, 20%);
+                /* margin-top: 1px; */
+         }
+        .location:hover .province{
+            width: 40px;
+            height: 29px;
+            background-color: rgb(254, 254, 254);
+            border:rgb(197, 197, 197) 1px solid;
+            border-bottom:rgb(250, 2, 2) 1px solid;
+            /* border-bottom: none; */
+            
+         }
+        
+         .top-menu ul{
+            width: 803px;
+            height: 30px;
+            display: flex;
+            justify-content: space-around;
+         }
+         .fas{
+                font-size:10px;
+                color: rgb(200, 198, 198);
+                margin:0,0,0,0;
+         }
+        .spacer{
+                width: 1px;
+                height: 10px;
+                background-color: #CCCCCC;
+                margin: 10px 5px 0 5px;
+         }
+        .main-header{
+            width: 1380.360px;
+            height: 140px;
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1; 
+         }
+        .s{
+            width: 1190px;
+            height: 140px;
+            background-color: rgb(255, 255, 255);
+            margin: auto;
+            display: block;
+            position: relative;
+            
+         }
+        .s-logo{
+            width:  190px;
+            height: 120px;
+            position: relative;
+            top: 10px;
+           
+            /* float: left; */
+         }
+         .s-logo img{
+            width: 134px;
+            height: 120px;
+            margin: 0 28px;
+         }
+         .s-searchbox{
+            width: 546px;
+            height: 32px;
+            /* position: relative; */
+            /* top: 10px; */
+            /* float: left; */
+            border: 2px solid #E2231A;
+            display:block;
+            justify-content: space-around;
+            line-height: 32px;
+            position: absolute;
+            top: 25px;
+            left: 260px;
+         }
+        input{
+            width: 425px;
+            height: 26px;
+            padding: 2px 44px 2px 17px;
+            border: 1px solid #ffffff;
+            float: left;
+            outline: none;
+         }
+         .s-search-photo img{
+            width: 19px;
+            height: 15px;
+            position:absolute;
+            top: 10px;
+            right: 75px;
+         }
+        .s-search-btn button{
+            width: 58px;
+            height: 32px;
+            float: right;
+            background-color: #e01313;
+            color: #fff;
+            border: 1px solid #ffffff;
+            outline: none;
+        } 
+        .s-search-btn button  i{
+            width: 20px;
+            height: 21px;
+            line-height: 20px;
+            font-size: 18px;
+            
+        }
+        .hot-search{
+            width: 550px;
+            height: 20x;
+            position: absolute;
+            top: 65px;
+            left: 355px;
+        }
+        .hot-search a{
+            font-size: 14px;
+            color: #A2A2A2;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .hot-search b:hover{
+            color: #e4111f;
+        }
+        .s-menu{
+            width: 760px;
+            height: 40px;
+            line-height: 40px;
+            background-color:line rgba(255, 127, 80, 0);
+            margin: auto;
+            padding-top: 20px;
+            display: block;
+            position: absolute;
+            top: 80px;
+            left: 340px;
+        }
+        .s-menu a{
+            font-size: 15px;
+            color: #333;
+            text-decoration: none;
+            margin: 0px 11px;
+        }
+        .s-menu a:hover{
+            color: #e4111f;
+        }
+        .shoppingcar{
+            width: 132px;
+            height: 34px;
+            position: absolute;
+            top: 1px;
+            right: 230px;
+            bottom: -1px;
+            left: 548px;
+            display: flex;
+            justify-content: space-around;
+            line-height: 34px;
+            border: 1px solid #e3e4e5;
+            background-color: #ffffff;
+            margin-left: 14px;
+        }
+        .shoppingcar img{
+            width: 20px;
+            height: 20px;
+            margin: 8px 0 0 0;
+        }
+        .shoppingcar a{
+            font-size: 14px;
+            font-family: Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;;
+            color: #E1251B;
+            text-decoration: none;
+        }
+        .shoppingcar .shoppingcar-num{
+            width: 12px;
+            height: 12px;
+            padding: 1px 3px;
+            border-radius: 7px;
+            position: absolute;
+            top: 1px;
+            left: 25px;
+            display: inline-block;
+            line-height: 12px;
+            font-size: 12px;
+            min-width: 12px;
+            text-align: center;
+            /* border: #E2231A 2px solid;
+            border-radius: 50%; */
+            background-color: #E2231A;
+            color: #fcfcfc;  
+        }
+        .main{
+            width: 1371px;
+            height: 480px;
+            background-color: rgb(244,244,244);
+            margin-right: 10px;;   
+        }
+        .mian-body{
+            width: 1190px;
+            height: 480px;
+            background-color: rgb(211, 8, 8);
+            margin: 0 auto;
+            
+        }
+        .mian-body-left{
+            display: block;
+            overflow: hidden;
+            padding: 10px 0;
+            width: 190px;
+            height: 450px;
+            background-color: rgba(76, 183, 172, 0.177);
+            color: #636363;
+            margin-top: 10px ; 
+            margin-right: 10px;
+            float: left;
+        }
+        .mian-body-left ul{
+            display: flex;
+            flex-direction: column;  
+        }
+        .mian-body-left li{
+            float: left;
+            width: 100%;
+            height: 25px;
+            line-height: 25px;
+            padding-left:15px; 
+            font-size: 0px;
+            line-height: 25px;
+        }
+        .mian-body-left a{
+            font-size: 14px;
+            text-decoration: none;
+            color: rgb(51,51,51)
+        }
+        .item span{
+            padding: 0 2px;
+            font-size: 12px;
+        }
+        .item:hover{
+            background-color: rgb(217,217,217);
+         }
+         .item a:hover{
+        color: rgb(250, 10, 30);
+        }
+        .mian-body-middle{
+            width: 790px;
+            height: 480px;
+            float: left;
+            margin-right: 10px;
+            background-color: rgb(195, 37, 37);
+        }
+        .mian-body-right{
+            width: 190px;
+            height: 480px;
+            float: right;
+            background-color: rgb(195, 37, 37);
+        }
+        .right-user{
+            width: 190px;
+            height: 102px;
+            background-color: rgb(252, 252, 252);
+            margin-top: 10px;
+        }
+        .right-news{
+            width: 190px;
+            height: 130px;
+            background-color: rgb(236, 142, 142);
+            margin: 0px 0;
+        }
+        .right-service{
+            width: 190px;
+            height: 238px;
+            background-color: rgb(9, 194, 31);
+            
+        }
+        .list{
+            width: 170px;
+            /*white-space:空白区域 nowrap(不换行),pre(保留空格),pre-wrap(保留空格并换行),pre-line(保留空格并换行) */
+            white-space: nowrap;
+            overflow: hidden;
+            /* text-overflow:文本溢出 ellipsis(省略号),clip(裁剪) */
+            text-overflow: ellipsis;
+            float: right;
+            
+        }
+
+
+        /* .b00002{
+            width: 100px;
+            height: 1000px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5),rgb(103, 223, 12),rgb(219, 181, 11), rgba(255, 4, 4, 0.5));
+            position: absolute;
+        } */
+    </style>
+</head>
+<body>
+    <div class="top-header">
+        <div class="top-bottom">
+
+
+            <div class="location" id="dw">
+                <div class="province">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <ul>
+                        <li><a id="province" href="javascript:;" >北京</a></li>
+                    </ul>
+                </div>
+                <div class="province-list">qwdqwdqwd
+                    
+                </div>
+            </div>
+
+
+
+            <div class="top-menu">
+                <ul >
+                    <li>
+                        <a href="javascript:;">你好，请登录</a>
+                        &nbsp;
+                        <a href="javascript:;" style="color: red;">免费注册</a>
+                    </li>
+                    <li><a href="javascript:;">我的订单</a></li>
+                    <li class="spacer"></li>
+                    <li class="xiala">
+                        <a href="javascript:;">我的京东</a>
+                        <i class="fa fa-angle-down"></i>
+                        <!-- <div class="xiala">
+                            <ul>
+                                <li><a href="javascript:;">待处理订单</a></li>
+                                <li><a href="javascript:;">返修退换货</a></li>
+                                <li><a href="javascript:;">降价商品</a></li>
+                                <li><a href="javascript:;">消息</a></li>
+                                <li><a href="javascript:;">我的问答</a></li>
+                                <li><a href="javascript:;">我的关注</a></li>
+                                <li><a href="javascript:;">我的京豆</a></li>
+                                <li><a href="javascript:;">我的优惠券</a></li>
+                                <li><a href="javascript:;">我的白条</a></li>
+                                <li><a href="javascript:;">我的理财</a></li>
+                            </ul>
+                        </div> -->
+                    </li>
+                    <li class="spacer"></li>
+                    <li ><a href="javascript:;">京东会员</a></li>
+                    <li class="spacer"></li>
+                    <li>
+                        <a href="javascript:;" style="color: red;">企业采购</a>
+                        <i class="fa fa-angle-down"></i>
+                    </li>
+                    <li class="spacer"></li>
+                    <li>
+                        <a href="javascript:;">商家服务</a>
+                        <i class="fa fa-angle-down"></i>
+                    </li>
+                    <li class="spacer"></li>
+                    <li>
+                        <a href="javascript:;">网站导航</a>
+                        <i class="fa fa-angle-down"></i>
+                    </li>
+                    <li class="spacer"></li>
+                    <li><a href="javascript:;">手机京东</a></li>
+                    <li class="spacer"></li>
+                    <li><a href="javascript:;">网站无障碍</a></li>
+                </ul>
+            </div> 
+        </div>
+    </div>
+
+    <div class="main-header">
+       <div class="s">
+            <div class="s-logo">
+                <a href="https://www.jd.com">
+                    <img src="../img/京东.png" alt="京东">
+                </a>  
+            </div>
+            <div class="s-searchbox">
+                <div class="s-search-input">
+                    <input type="text" placeholder="请输入关键字">
+                </div>
+                <div class="s-search-photo">
+                    <a href="javascript:;"><img src="../img/相机 (4).png" alt="搜索"> </a>
+                </div>    
+                <div class="s-search-btn">
+                    <button>
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="shoppingcar">
+                    <img class="shoppingcar-img" src="../img/购物车.png" alt="购物车">
+                    <a href="javascript:;">我的购物车</a>
+                    <i class="shoppingcar-num">0</i>
+                </div>
+            </div>
+       </div>  
+       <div class="hot-search">
+            <a href="javascript:;">热门促销</a>
+            <a href="javascript:;">小米新品</a>
+            <a href="javascript:;">华为手机</a>
+            <a href="javascript:;">iPhone14</a>
+            <a href="javascript:;">企业采购</a>
+            <a href="javascript:;">电脑办公</a>
+       </div>
+       <div class="s-menu">
+        <a href="javascript:;">京东五金城</a>
+        <a href="javascript:;">京东超市</a>
+        <a href="javascript:;">秒杀</a>
+        <a href="javascript:;">京东生鲜</a>
+        <a href="javascript:;">优惠卷</a>
+        <a href="javascript:;">PLUS会员</a>
+        <a href="javascript:;">拍卖</a>
+        <a href="javascript:;">品牌闪购</a>
+        <a href="javascript:;">京东云</a>
+       </div>
+    </div> 
+    <div class="mian">
+        <div class="mian-body">
+            <div class="mian-body-left">
+                <ul>
+                    <li class="item">
+                        <a href="#" target="_blank">家用电器</a>     
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">手机</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">运营商</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">数码</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">电脑</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">办公</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">家居</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">家具</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">家装</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">厨具</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">男装</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">女装</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">童装</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">内衣</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">美妆</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">个护清洁</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">宠物</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">女鞋</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">箱包</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">钟表</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">珠宝</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">男鞋</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">运动</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">户外</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">房产</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">汽车</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">汽车用品</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">母婴</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">玩具乐器</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">食品</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">酒类</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">生鲜</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">特产</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">艺术</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">礼品鲜花</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">农资绿植</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">医药保健</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">计生情趣</a>
+                        </span>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">图书</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">文娱</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">教育</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">电子书</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">机票</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">酒店</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">旅游</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">生活</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">众筹</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">白条</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">保险</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">安装</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">维修</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">清洗</a>
+                        <span>/</span>
+                        <a href="#" target="_blank">二手</a>
+                    </li>
+                    <li class="item">
+                        <a href="#" target="_blank">工业品</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mian-body-middle">
+                <div class="mian-body-middle-left">
+
+                </div>
+                <div class="mian-body-middle-right">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="mian-body-right">
+                <div class="right-user"></div>
+                <div class="right-news">
+                    <ul>
+                        <li class="list">2022-10-16 ，10:51本人在此使用新代码，省略号。</li>
+                    </ul>
+                </div>
+                <div class="right-service"></div>
+            </div>
+        </div>
+    </div>
+    <div class="b00002">   
+    </div>
+
+
+    <!-- 通过js实现定位 -->
+    <!--引用百度地图API文件， 您的秘钥的获取方式是注册为百度地图的开发者，创建应用-->
+<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=VaaGGoPOupCLA7Vpcs1NpZFDjH5mRmMB">
+    //v3.0版本的引用方式：src="http://api.map.baidu.com/api?v=3.0&ak=您的密钥"
+</script> -->
+<script type="text/javascript">
+    // 创建一个函数，主要功能是在调用html5的geolocation()前，先判断当前浏览器是否支持html5，（PC绝大部分浏览器不支持或者拒绝html5定位）
+    function getLocation() {
+        var options = {
+            enableHighAccuracy: true,
+            maximumAge: 1000
+        };
+        // alert('获取位置信息开始--------->');
+        if (navigator.geolocation) {
+            // 走到这里说明，浏览器支持geolocation，参数里有两个回调函数，一个是定位成功后的处理操作，一个是定位失败后的处理操作，另外一个参数没有研究过
+            navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+        } else {
+            // 否则浏览器不支持geolocation
+            alert('您的浏览器不支持地理位置定位！');
+        }
+    }
+ 
+    // 成功时的回调函数
+    // 第一步获取定位成功返回的经纬度数据，然后结合百度那边提供的接口进行具体位置的转换，最后还有一个数据提交的方法，要跟自己的业务操作了
+    function onSuccess(position) {
+        // 返回用户位置
+        // 经度
+        var longitude = position.coords.longitude;
+        // 纬度
+        var latitude = position.coords.latitude;
+        // alert('您的当前地址的经纬度：经度' + longitude + '，纬度' + latitude);
+        // 根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point(longitude, latitude);
+        var gc = new BMap.Geocoder();
+        gc.getLocation(point, function (rs) {
+            var addComp = rs.addressComponents;
+            // alert(addComp.province);
+            document.getElementById("province").innerHTML = addComp.province;//将省份传入p标签中
+
+        });
+        // 这里后面可以写你的后续操作了
+        handleData(longitude, latitude);
+    }
+ 
+    // 失败时的回调函数
+    // 这里是错误提示信息
+    function onError(error) {
+        switch (error.code) {
+            case 1:
+                alert("位置服务被拒绝！");
+                break;
+            case 2:
+                alert("暂时获取不到位置信息！");
+                break;
+            case 3:
+                alert("获取信息超时！");
+                break;
+            case 4:
+                alert("未知错误！");
+                break;
+        }
+        // 这里后面可以写你的后续操作了，下面的经纬度是天安门的具体位置
+        // 经度
+        var longitude = 39.9151;
+        // 纬度
+        var latitude = 116.4041;
+        handleData(longitude, latitude);
+    }
+ 
+    // 页面载入时请求获取当前地理位置
+    window.onload = function () {
+        // html5获取地理位置
+        getLocation();
+    };
+</script>
+</body>
+</html>

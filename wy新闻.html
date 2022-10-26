@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/recss.css">
+    <style>
+        body{
+            background-color: aquamarine;
+        }
+        .news-wapper{
+            width: 300px;
+            height: 324px;
+            background-color: white;
+            margin: 10px auto;
+            object-fit: cover;/* 图片填充 */
+            transition: 0.3s;/* 过渡效果 */
+        }
+        .news-title{
+            width: 300px;
+            height: 41px;
+            display: flex;
+            line-height: 41px;
+            font-size: 16px;
+            font-weight: bold;
+            border-top: 1px solid #DDDDDD;
+            
+            /* background-color: aqua; */
+            
+        }
+        .news-title a,span{
+            padding-top: 6px;
+            padding-bottom: 10px;
+            border-top: 1px solid #F34540;
+            margin-top: -1px;
+            text-decoration: none;
+            color: #000000;
+            
+        }
+        .news-title a:hover{
+            color: #F34540;
+        }
+        .news-img{
+            width: 300px;
+            height: 150px;
+            position: relative;/* 相对定位 */
+            overflow: hidden;    
+        }
+        
+        .news-wapper:hover img{
+            transform: scale(1.5);/* 放大 */
+        }
+        .news-img .img-title{
+            width: 300px;
+            height: 40px;
+            position: absolute;/* 绝对定位 */
+            top:110px;
+            background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.533));
+            /* background-color: linear-gradient(to top, rgb(255, 0, 0),rgba(0, 0, 0, 0.5));  */
+            /* background-image: url("http://static.ws.126.net/f2e/news/index2016/images/sprite_icon0813_v1.png") no-repeat 12px -125px; */
+            /* background-color: linear-gradient(rgba(255, 0, 0, 0.5),rgba(249, 3, 3, 0.5)); */
+            
+            color: white;
+            font-size: 17px;
+            line-height: 40px;
+            text-align: center;
+            
+        }
+        .news-list{
+            width: 300px;
+            height: 120px;
+            color: rgb(159, 154, 154);
+            margin: 12px 0;
+            padding-left: 15px;
+            /* background-color: aqua; */
+        }
+        .news-list li{
+           width: 285px;
+           height: 30px;
+           list-style: square;
+           font-family: "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "微软雅黑", "宋体", sans-serif;
+        }
+        .news-list li a{
+            font-size: 12px;
+            text-decoration: none;
+            color: rgb(94, 91, 91);
+        }
+        .news-list li a:hover{
+            color: #F34540;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-wapper">
+        <div class="news-title">
+            <a href="javascript:;"><h2>军事</h2></a>
+            <span>·</span>
+            <a href="javascript:;"><h2>航空</h2></a>
+        </div>
+        <div class="news-img">
+            <a href="javascript:;">
+                <img src="https://cms-bucket.ws.126.net/2022/1007/e36b52aej00rjcwu0006nc000s600e3c.jpg?imageView&thumbnail=300y150&type=webp" alt="">
+                <div class="img-title"><h3>自行火炮开火瞬间 炮弹被捕捉</h3>
+                </div> 
+            </a>
+        </div>
+        <div class="news-list">
+            <ul>
+                <li>
+                    <a  href="javascript:;">国产直10武装直升机密集编队准备起飞</a>
+                </li>
+                <li>
+                    <a  href="javascript:;">日本出云号准航母结束部署返回母港</a> 
+                </li>
+                <li>
+                    <a  href="javascript:;">SpaceX龙飞船将美日俄宇航员送往国际空间站</a>
+                </li>
+                <li>
+                    <a  href="javascript:;">本周四又有德国航空公司罢工了！这次是欧洲之翼</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+        
+
+</body>
+</html>
